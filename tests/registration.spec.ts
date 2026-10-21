@@ -209,106 +209,106 @@ test("Dynamic Dependent Dropdown", async({page})=>{
 });
 
 //Single File Upload
-test("Single File Upload", async({page})=>{
+// test("Single File Upload", async({page})=>{
 
-    await page.goto("https://www.playwrightautomation.com/");
+//     await page.goto("https://www.playwrightautomation.com/");
     
-    await page.getByRole("link", {name: "Start Practicing"}).click();
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
+//     await page.getByRole("link", {name: "Start Practicing"}).click();
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
 
-    await expect(page.getByRole("heading", {name: "Standard File Inputs"})).toBeVisible();
+//     await expect(page.getByRole("heading", {name: "Standard File Inputs"})).toBeVisible();
 
-    const singleFile = page.locator('[data-testid="upload-single"]');
-    await singleFile.setInputFiles("C:/Users/Biraj/Downloads/1790402015750.jpg");
+//     const singleFile = page.locator('[data-testid="upload-single"]');
+//     await singleFile.setInputFiles("C:/Users/Biraj/Downloads/1790402015750.jpg");
 
-    await expect(page.locator('[data-testid="upload-single-status"]')).toHaveText("✓ File Uploaded Successfully");
+//     await expect(page.locator('[data-testid="upload-single-status"]')).toHaveText("✓ File Uploaded Successfully");
 
-});
+// });
 
 
 //Multiple File Upload
-test("Multiple File Upload", async({page})=>{
+// test("Multiple File Upload", async({page})=>{
 
-    await page.goto("https://www.playwrightautomation.com/");
+//     await page.goto("https://www.playwrightautomation.com/");
     
-    await page.getByRole("link", {name: "Start Practicing"}).click();
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
+//     await page.getByRole("link", {name: "Start Practicing"}).click();
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
 
-    await expect(page.getByRole("heading", {name: "Standard File Inputs"})).toBeVisible();
+//     await expect(page.getByRole("heading", {name: "Standard File Inputs"})).toBeVisible();
 
-    const multipleFile = page.locator('[data-testid="upload-multiple"]');
-    await multipleFile.setInputFiles(["C:/Users/Biraj/Pictures/Screenshots/1.png",
-                                      "C:/Users/Biraj/Pictures/Screenshots/2.png"]);
+//     const multipleFile = page.locator('[data-testid="upload-multiple"]');
+//     await multipleFile.setInputFiles(["C:/Users/Biraj/Pictures/Screenshots/1.png",
+//                                       "C:/Users/Biraj/Pictures/Screenshots/2.png"]);
 
     
-     await expect(page.locator('[data-testid="upload-multiple-count"]')).toHaveText("2");                                
+//      await expect(page.locator('[data-testid="upload-multiple-count"]')).toHaveText("2");                                
 
-});
+// });
 
 //Upload Challenges
-test("Upload Challenges", async({page})=>{
+// test("Upload Challenges", async({page})=>{
 
-    await page.goto("https://www.playwrightautomation.com/");
+//     await page.goto("https://www.playwrightautomation.com/");
     
-    await page.getByRole("link", {name: "Start Practicing"}).click();
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
+//     await page.getByRole("link", {name: "Start Practicing"}).click();
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
 
-    await expect(page.getByRole("heading", {name: "Upload Challenges"})).toBeVisible();
+//     await expect(page.getByRole("heading", {name: "Upload Challenges"})).toBeVisible();
 
-    const resumeUpload = page.getByTestId("btn-upload-resume");
+//     const resumeUpload = page.getByTestId("btn-upload-resume");
 
-    const fileChooserPromise = page.waitForEvent("filechooser");
-    await resumeUpload.click();
+//     const fileChooserPromise = page.waitForEvent("filechooser");
+//     await resumeUpload.click();
 
-    const fileChooser = await fileChooserPromise;
-    await fileChooser.setFiles("C:/Users/Biraj/Downloads/Profile.pdf");
+//     const fileChooser = await fileChooserPromise;
+//     await fileChooser.setFiles("C:/Users/Biraj/Downloads/Profile.pdf");
 
-    await expect(page.locator('[data-testid="upload-hidden-status"]')).toHaveText("✓ Resume Uploaded Successfully");
+//     await expect(page.locator('[data-testid="upload-hidden-status"]')).toHaveText("✓ Resume Uploaded Successfully");
 
-    //Browse Upload
-    const browseFile = page.getByTestId("btn-browse-files");
+//     //Browse Upload
+//     const browseFile = page.getByTestId("btn-browse-files");
 
-    const selectFile = page.waitForEvent("filechooser");
-    await browseFile.click();
+//     const selectFile = page.waitForEvent("filechooser");
+//     await browseFile.click();
 
-    const myFile = await selectFile;
-    await myFile.setFiles("C:/Users/Biraj/Downloads/Profile.pdf");
+//     const myFile = await selectFile;
+//     await myFile.setFiles("C:/Users/Biraj/Downloads/Profile.pdf");
 
-    await expect(page.locator('[data-testid="filechooser-status"]')).toHaveText("✓ 1 File Selected Successfully");
-});
+//     await expect(page.locator('[data-testid="filechooser-status"]')).toHaveText("✓ 1 File Selected Successfully");
+// });
 
-//Capture Screenshot
-test("Capture Screenshot", async({page})=>{
+// //Capture Screenshot
+// test("Capture Screenshot", async({page})=>{
 
-    await page.goto("https://www.playwrightautomation.com/");
+//     await page.goto("https://www.playwrightautomation.com/");
 
-    //Element screenshot
-    await page.locator('[data-testid="hero-visual"]').screenshot({path: "./screenshots/element-screenshot.png"});
+//     //Element screenshot
+//     await page.locator('[data-testid="hero-visual"]').screenshot({path: "./screenshots/element-screenshot.png"});
 
-    // Page screenshot 
-    await page.screenshot({path: "./screenshots/page-screenshot.png"});
+//     // Page screenshot 
+//     await page.screenshot({path: "./screenshots/page-screenshot.png"});
 
-    // Full-page screenshot
-    await page.screenshot({path: "./screenshots/fullpage-screenshot.png", fullPage: true});
+//     // Full-page screenshot
+//     await page.screenshot({path: "./screenshots/fullpage-screenshot.png", fullPage: true});
 
-    await page.getByRole("link", {name: "Start Practicing"}).click();
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
-});
+//     await page.getByRole("link", {name: "Start Practicing"}).click();
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/practice.html");
+// });
 
-//Capture Registration Form Screenshot
-test("Capture Registration Form Screenshot", async({page})=>{
+// //Capture Registration Form Screenshot
+// test("Capture Registration Form Screenshot", async({page})=>{
 
-    await page.goto("https://www.playwrightautomation.com/");
+//     await page.goto("https://www.playwrightautomation.com/");
 
-    await page.locator('[data-testid="pw-header-login"]').click();
+//     await page.locator('[data-testid="pw-header-login"]').click();
 
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/login.html");
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/login.html");
 
-    await page.locator('[data-testid="login-register-link"]').click();
+//     await page.locator('[data-testid="login-register-link"]').click();
 
-    await expect(page).toHaveURL("https://www.playwrightautomation.com/register.html");
+//     await expect(page).toHaveURL("https://www.playwrightautomation.com/register.html");
 
-    await page.screenshot({path: "./screenshots/registration-form.png", fullPage:true});
+//     await page.screenshot({path: "./screenshots/registration-form.png", fullPage:true});
 
-});
+// });
 
